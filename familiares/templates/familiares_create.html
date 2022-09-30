@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    <div class="row mt-4">
+        <div class="col-10 offset-1">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-10">
+                            <h5> Familiares - Alta de Nuevo Familiar </h5>
+                        </div>                       
+                    </div>
+                    
+                                        
+                </div>
+
+                <form action="" method="POST">
+
+                <div class="card-body">
+
+                        {% csrf_token %}
+
+                        {% comment %} NOMBRE Y APELLIDO {% endcomment %}
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-12 ">
+                            <div class="input-group my-3">
+                                <span class="input-group-text input-addon" id="basic-addon1"><i class="bi bi-person-circle"></i></span>
+                                {{ form.nombre }}
+                                <span class="error invalid-feedback">{{form.nombre.errors}}</span>
+                            </div>
+                
+                            </div>
+                            <div class="col-lg-6 col-sm-12 ">
+                            <div class="input-group my-3">
+                                <span class="input-group-text input-addon" id="basic-addon2"><i
+                                    class="bi bi-person-circle"></i></span>
+                                {{ form.apellido }}
+                                <span class="error invalid-feedback">{{form.apellido.errors}}</span>
+                            </div>
+                
+                            </div>
+                        </div>
+
+                        {% comment %} DNI Y FECHA DE NACIMIENTO {% endcomment %}
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-12 ">
+                            <div class="input-group my-3">
+                                <span class="input-group-text input-addon" id="basic-addon1"><i class="bi bi-credit-card-2-front"></i></span>
+                                {{ form.dni }}
+                                <span class="error invalid-feedback">{{form.dni.errors}}</span>
+                            </div>
+                
+                            </div>
+                            <div class="col-lg-6 col-sm-12 ">
+                            <div class="input-group my-3">
+                                <span class="input-group-text input-addon" id="basic-addon2"><i class="bi bi-calendar-event"></i></span>
+                                {{ form.fechaNacimiento }}
+                                <span class="error invalid-feedback">{{form.fechaNacimiento.errors}}</span>
+                            </div>
+                
+                            </div>
+                        </div>
+
+                        {% comment %} TELEFONO Y DIRECCION {% endcomment %}
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-12 ">
+                            <div class="input-group my-3">
+                                <span class="input-group-text input-addon" id="basic-addon1"><i class="bi bi-telephone"></i></span>
+                                {{ form.telefono }}
+                                <span class="error invalid-feedback">{{form.telefono.errors}}</span>
+                            </div>
+                
+                            </div>
+                            <div class="col-lg-6 col-sm-12 ">
+                            <div class="input-group my-3">
+                                <span class="input-group-text input-addon" id="basic-addon2"><i class="bi bi-geo-alt"></i></span>
+                                {{ form.direccion }}
+                                <span class="error invalid-feedback">{{form.direccion.errors}}</span>
+                            </div>
+                
+                            </div>
+                        </div>
+
+                        {% comment %} EMAIL {% endcomment %}
+                        <div class="row">
+                            <div class="col-lg-12 col-sm-12 ">
+                            <div class="input-group my-3">
+                                <span class="input-group-text input-addon" id="basic-addon1"><i class="bi bi-envelope"></i></span>
+                                {{ form.email }}
+                                <span class="error invalid-feedback">{{form.email.errors}}</span>
+                            </div>
+                
+                            </div>
+
+                        </div>
+
+
+                    
+
+                </div>
+
+                <div class="card-footer">
+                    <div class="row">
+                      <div class="col-12 mt-2">
+                        <button type="submit" class="btn btn-success float-end"><i class="bi bi-plus-circle"></i>
+                          Guardar</button>
+                        <a href="{% url 'familiares_index' %}" class="btn btn-danger float-start"><i class="bi bi-x-circle"></i>
+                          Cancelar</a>
+                    </div>
+                </div>
+
+                    </form>
+              </div>
+        </div>
+    </div>
+
+{% endblock %}
